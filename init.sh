@@ -1,19 +1,29 @@
-#!/bin/ash
+#!/bin/bash
 
 #Add Demo Users
-adduser -h /home/admin -s /bin/sh -D admin
+echo -n 'root:password' | chpasswd
+
+useradd -m admin
 echo -n 'admin:admin' | chpasswd
 
+useradd -m michael
+echo -n 'cocacola:cocacola' | chpasswd
+
+useradd -m tim
+echo -n '17071985:17071985' | chpasswd
+
 #setup ssh
-ssh-keygen -A
-ash -c 'cat << EOF > /etc/ssh/sshd_config
+mkdir /etc/sysconfig
+echo "OPTIONS=\"-ddd\" " >> /etc/sysconfig/sshd
+#ssh-keygen -A
+bash -c 'cat << EOF > /etc/ssh/sshd_config
 PasswordAuthentication yes
 PermitRootLogin yes
-MaxAuthTries 999999999
+MaxAuthTries 2147483647
 EOF'
 
-echo "admin" | tee -a /etc/vsftpd.user_list
 
 #Start Services
-exec /usr/sbin/sshd -D -e "$@"
+#service ssh start && bash
+
 

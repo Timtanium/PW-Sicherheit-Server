@@ -12,6 +12,9 @@ echo -n 'cocacola:cocacola' | chpasswd
 useradd -m tim
 echo -n '17071985:17071985' | chpasswd
 
+useradd -m radio
+echo -n 'paloma:paloma' | chpasswd
+
 #setup ssh
 mkdir /etc/sysconfig
 echo "OPTIONS=\"-ddd\" " >> /etc/sysconfig/sshd

@@ -1,19 +1,21 @@
 #!/bin/bash
 
 #Add Demo Users
+pam-auth-update
+
 echo -n 'root:password' | chpasswd
 
 useradd -m admin
 echo -n 'admin:admin' | chpasswd
 
 useradd -m michael
-echo -n 'cocacola:cocacola' | chpasswd
+echo -n 'michael:cocacola' | chpasswd
 
 useradd -m tim
-echo -n '17071985:17071985' | chpasswd
+echo -n 'tim:17071985' | chpasswd
 
 useradd -m radio
-echo -n 'paloma:paloma' | chpasswd
+echo -n 'radio:paloma' | chpasswd
 
 #setup ssh
 mkdir /etc/sysconfig

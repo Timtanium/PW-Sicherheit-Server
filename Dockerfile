@@ -24,19 +24,14 @@ RUN mv juice-shop_16.0.0 juice-shop
 
 COPY init.sh /opt/
 
-
-
-
 COPY secret.txt /home/admin/
 
 RUN chmod +x /opt/init.sh
 RUN /opt/init.sh
 
-
 #ENTRYPOINT service ssh start && bash
 RUN mkdir -p /var/run/sshd
 RUN chmod 0755 /var/run/sshd
-
 
 #CMD ["/usr/sbin/sshd", "-D", "-e"]
 ENTRYPOINT /opt/init.sh

@@ -29,6 +29,9 @@ EOF'
 
 
 #Start Services
-#service ssh start && bash
+cd /opt/juice-shop
+(npm start &)
+service ssh start && bash
+
 
 

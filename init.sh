@@ -27,11 +27,11 @@ PermitRootLogin yes
 MaxAuthTries 2147483647
 EOF'
 
-
 #Start Services
 cd /opt/juice-shop
 (npm start &)
-service ssh start && bash
+service ssh start && tail -f /dev/null
+
 
 
 
